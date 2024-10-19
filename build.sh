@@ -32,6 +32,11 @@ if [ "${CONFIG_REPO}" == "lede" ]; then
   REPO_BRANCH="master"
 fi
 
+if [ "${CONFIG_REPO}" == "aib" ]; then
+  REPO_URL="https://github.com/498110811/rk3588-aib"
+  REPO_BRANCH="master"
+fi
+
 if [ ! -d ${CONFIG_REPO} ]; then
   git clone --depth=1 -b ${REPO_BRANCH} ${REPO_URL} ${CONFIG_REPO}
   # if [ -d "${CONFIG_REPO}/package/kernel/r8125" ]; then
