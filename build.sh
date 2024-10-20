@@ -33,7 +33,7 @@ if [ "${CONFIG_REPO}" == "lede" ]; then
 fi
 
 if [ "${CONFIG_REPO}" == "aib" ]; then
-  REPO_URL="https://github.com/498110811/rk3588-aib"
+  REPO_URL="https://github.com/498110811/rk3588"
   REPO_BRANCH="master"
 fi
 
