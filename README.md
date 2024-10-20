@@ -22,11 +22,7 @@
 因为大部分为自用, 并没太多说明, 自行查看吧. 修改 config 后投递给我, 放一起维护也可以.  
 
 ```
-* allpass  -> 自用
-* lin      -> LiN 专用
-* lyc      -> 李佑辰 专用
-* oldwang  -> 老王 专用
-* simple   -> Leeson 专用
+* aib  -> rk3588-aib自用
 ```
 
 ## Preview
