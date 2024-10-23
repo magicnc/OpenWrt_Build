@@ -132,6 +132,7 @@ jobs:
           # feeds
           
           sed -i "/src-git ing /d; 1 i src-git ing https://github.com/wjz304/openwrt-packages;lede" feeds.conf.default
+          sed -i "/src-git 5g /d; 1 i src-git 5g https://github.com/Siriling/5G-Modem-Support.git" feeds.conf.default
           
           ./scripts/feeds update -a
           # if [ -d ./feeds/packages/lang/golang ]; then
