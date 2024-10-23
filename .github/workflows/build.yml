@@ -106,10 +106,6 @@ jobs:
             REPO_BRANCH="master"
           fi
 
-          if [ "${CONFIG_REPO}" == "aib" ]; then
-            REPO_URL="https://github.com/498110811/rk3588-aib"
-            REPO_BRANCH="master"
-          fi
 
           if [ "${CONFIG_REPO}" == "lede" ]; then
             REPO_URL="https://github.com/coolsnowwolf/lede"
