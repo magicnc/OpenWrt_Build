@@ -134,9 +134,9 @@ jobs:
           git pull
 
           # feeds
-          if [ "${CONFIG_REPO}" == "lede" ]; then
-            sed -i "/src-git ing /d; 1 i src-git ing https://github.com/wjz304/openwrt-packages;lede" feeds.conf.default
-          fi
+          
+          sed -i "/src-git ing /d; 1 i src-git ing https://github.com/wjz304/openwrt-packages;lede" feeds.conf.default
+          
           ./scripts/feeds update -a
           # if [ -d ./feeds/packages/lang/golang ]; then
           #   rm -rf ./feeds/packages/lang/golang
