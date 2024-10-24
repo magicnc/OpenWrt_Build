@@ -117,7 +117,7 @@ sed -i "s/OpenWrt /${owner} build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" ${d
 # Modify default theme
 #deftheme=bootstrap
 if [ "${owner}" == "Leeson" ]; then
-  #deftheme=bootstrap
+  deftheme=bootstrap
 elif [ "${owner}" == "Lyc" ]; then
   deftheme=pink
 else
