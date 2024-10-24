@@ -112,20 +112,20 @@ sed -i "s/OpenWrt /${owner} build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" ${d
 #sed -i 's/KERNEL_PATCHVER:=5.15/KERNEL_PATCHVER:=5.4/g' ./target/linux/x86/Makefile
 
 # Modify maximum connections
-sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' package/base-files/files/etc/sysctl.conf
+#sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' package/base-files/files/etc/sysctl.conf
 
 # Modify default theme
 #deftheme=bootstrap
-#if [ "${owner}" == "Leeson" ]; then
+if [ "${owner}" == "Leeson" ]; then
   #deftheme=bootstrap
-#elif [ "${owner}" == "Lyc" ]; then
-  #deftheme=pink
-#else
-  #deftheme=argon
-#fi
+elif [ "${owner}" == "Lyc" ]; then
+  deftheme=pink
+else
+  deftheme=argon
+fi
 #echo deftheme: ${deftheme}
-#sed -i "s/bootstrap/${deftheme}/g" feeds/luci/collections/luci/Makefile
-#sed -i "s/bootstrap/${deftheme}/g" feeds/luci/modules/luci-base/root/etc/config/luci
+sed -i "s/bootstrap/${deftheme}/g" feeds/luci/collections/luci/Makefile
+sed -i "s/bootstrap/${deftheme}/g" feeds/luci/modules/luci-base/root/etc/config/luci
 
 # Add kernel build user
 [ -z $(grep "CONFIG_KERNEL_BUILD_USER=" .config) ] &&
@@ -171,8 +171,8 @@ function git_sparse_clone() {
 # sed -i 's/services/vpn/g' feeds/luci/applications/luci-app-v2ray-server/luasrc/model/cbi/v2ray_server/*.lua
 # sed -i 's/services/vpn/g' feeds/luci/applications/luci-app-v2ray-server/luasrc/view/v2ray_server/*.htm
 
-./scripts/feeds update -a
-./scripts/feeds install -a
+#./scripts/feeds update -a
+#./scripts/feeds install -a
 
 # Modify app name
 #sed -i 's/"IPSec VPN 服务器"/"IPSec VPN"/g' package/feeds/luci/luci-app-ipsec-server/po/*/ipsec-server.po # `grep "IPSec VPN 服务器" -rl ./`
