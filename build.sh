@@ -32,6 +32,11 @@ if [ "${CONFIG_REPO}" == "lede" ]; then
   REPO_BRANCH="master"
 fi
 
+if [ "${CONFIG_REPO}" == "Cyber" ]; then
+  REPO_URL="https://github.com/498110811/lede"
+  REPO_BRANCH="master"
+fi
+
 
 if [ ! -d ${CONFIG_REPO} ]; then
   git clone --depth=1 -b ${REPO_BRANCH} ${REPO_URL} ${CONFIG_REPO}
@@ -50,7 +55,7 @@ export FORCE_UNSAFE_CONFIGURE=1
 pushd ${CONFIG_REPO}
 git pull
 
-sed -i "/src-git ing /d; 1 i src-git ing https://github.com/wjz304/openwrt-packages;${CONFIG_REPO}" feeds.conf.default
+#sed -i "/src-git ing /d; 1 i src-git ing https://github.com/wjz304/openwrt-packages;${CONFIG_REPO}" feeds.conf.default
 
 ./scripts/feeds update -a
 # if [ -d ./feeds/packages/lang/golang ]; then
