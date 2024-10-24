@@ -143,9 +143,6 @@ date_version=$(date +"%y.%m.%d")
 orig_version=$(cat "package/lean/default-settings/files/zzz-default-settings" | grep DISTRIB_REVISION= | awk -F "'" '{print $2}')
 sed -i "s/${orig_version}/${owner} buildR ${date_version} by OpenWrt/g" package/lean/default-settings/files/zzz-default-settings
 
-# 修复 hostapd 报错
-cp -f $GITHUB_WORKSPACE/script/011-fix-mbo-modules-build.patch package/network/services/hostapd/patches/011-fix-mbo-modules-build.patch
-
 # 修复 armv8 设备 xfsprogs 报错
 sed -i 's/TARGET_CFLAGS.*/TARGET_CFLAGS += -DHAVE_MAP_SYNC -D_LARGEFILE64_SOURCE/g' feeds/packages/utils/xfsprogs/Makefile
 
@@ -161,9 +158,6 @@ sed -i 's/TARGET_CFLAGS.*/TARGET_CFLAGS += -DHAVE_MAP_SYNC -D_LARGEFILE64_SOURCE
 #git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 #git clone --depth=1 https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
 #git_sparse_clone main https://github.com/haiibo/packages luci-theme-atmaterial luci-theme-opentomcat luci-theme-netgear
-
-# 更改 Argon 主题背景
-#cp -f $GITHUB_WORKSPACE/images/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 
 # 晶晨宝盒
 #git_sparse_clone main https://github.com/ophub/luci-app-amlogic luci-app-amlogic
