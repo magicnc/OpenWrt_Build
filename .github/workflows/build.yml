@@ -112,6 +112,11 @@ jobs:
             REPO_BRANCH="master"
           fi
 
+          if [ "${CONFIG_REPO}" == "Cyber" ]; then
+            REPO_URL="https://github.com/498110811/lede"
+            REPO_BRANCH="master"
+          fi
+
           if [ ! -d ${CONFIG_REPO} ]; then
             git clone --depth=1 -b ${REPO_BRANCH} ${REPO_URL} ${CONFIG_REPO}
             chmod -R 777 .
@@ -131,8 +136,8 @@ jobs:
 
           # feeds
           
-          sed -i "/src-git ing /d; 1 i src-git ing https://github.com/wjz304/openwrt-packages;lede" feeds.conf.default
-          sed -i "/src-git 5g /d; 1 i src-git 5g https://github.com/Siriling/5G-Modem-Support.git" feeds.conf.default
+          #sed -i "/src-git ing /d; 1 i src-git ing https://github.com/wjz304/openwrt-packages;lede" feeds.conf.default
+          #sed -i "/src-git 5g /d; 1 i src-git 5g https://github.com/Siriling/5G-Modem-Support.git" feeds.conf.default
           
           ./scripts/feeds update -a
           # if [ -d ./feeds/packages/lang/golang ]; then
@@ -140,8 +145,8 @@ jobs:
           #   git clone --depth=1 -b 22.x https://github.com/sbwml/packages_lang_golang ./feeds/packages/lang/golang
           # fi
           ./scripts/feeds install -a
-          ./scripts/feeds uninstall `grep Package ./feeds/ing.index | awk -F': ' '{print $2}'`
-          ./scripts/feeds install -p ing -a
+          #./scripts/feeds uninstall `grep Package ./feeds/ing.index | awk -F': ' '{print $2}'`
+          #./scripts/feeds install -p ing -a
 
           cp -f "${WORKSPACE}/${config}" "./.config"
           cp -f "${WORKSPACE}/${script}" "./diy.sh"
