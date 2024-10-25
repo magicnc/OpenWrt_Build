@@ -151,8 +151,8 @@ jobs:
           cp -f "${WORKSPACE}/${config}" "./.config"
           cp -f "${WORKSPACE}/${script}" "./diy.sh"
 
-          chmod +x "./diy.sh"
-          "./diy.sh" "${CONFIG_REPO}" "${CONFIG_OWNER}"
+          #chmod +x "./diy.sh"
+          #"./diy.sh" "${CONFIG_REPO}" "${CONFIG_OWNER}"
 
           make defconfig
 
